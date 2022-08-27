@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def main():
@@ -12,8 +12,7 @@ def main():
         clf = joblib.load("clf.pkl")
         
         # Get values through input bars
-        height = request.form.get("height")
-        weight = request.form.get("weight")
+        image = request.form.get("client image")
         
         # Put inputs to dataframe
         X = pd.DataFrame([[height, weight]], columns = ["Height", "Weight"])
@@ -26,5 +25,5 @@ def main():
         
     return render_template("website.html", output = prediction)
 
-if _name_ == "_main_":
+if __name__ == "_main_":
   app.run()
