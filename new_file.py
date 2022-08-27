@@ -14,8 +14,6 @@ def euclidean(point, data):
     return np.sqrt(np.sum((point - data)**2, axis=1))
 
 
-
-
 class KNeighborsClassifier_IdoShiraz():
     def __init__(self, k=5, dist_metric=euclidean):
         self.k = k
@@ -50,6 +48,7 @@ def load_model_from_mongo(client, database, collection):
     mycol = mydb[collection]
     model = mycol.find()[0]["knn model"]
     return model
+
 
 
 # # saving the scaler
